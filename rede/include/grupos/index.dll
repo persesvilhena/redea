@@ -1,0 +1,4 @@
+<frameset cols="*,*" frameborder="0">
+<frame src="engine/grupoframe1.php"></frame>
+<frame src="engine/grupoframe2.php"></frame>
+</frameset>

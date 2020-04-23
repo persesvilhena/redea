@@ -1,0 +1,68 @@
+<?php include("../includes/ct2.dll"); ?><span class="titulo">Painel de Administrador do grupo:</span><?php include("../includes/ft2.dll"); ?>
+<?php include("../includes/cb2.dll"); ?>
+<hr size="1" color="#cccccc">
+<script> 
+function ativa(){ 
+var div = document.getElementById('div') 
+if (div.style.display == 'none') { 
+document.getElementById("botao").value='Esconder Opções' 
+div.style.display = 'block' 
+} else { 
+div.style.display = 'none' 
+document.getElementById("botao").value='Mostrar Opções' 
+} 
+} 
+</script>
+<?php
+session_start();
+
+if(isset($_POST["cadastrar"])) { 
+	
+	if(!empty($_POST["desc"])) { 
+		
+		$desc = $class->antisql($_POST["desc"]);
+		
+			
+			$insert = mysql_query("update grupo set descricao = '$desc' where id = '$grupo[id]'") or die(mysql_error());
+			if($insert) {
+				
+				$mensagem_erro = "<b>Dados Alterados com sucesso!</b>";
+			}
+		
+		
+	}
+	else {
+	
+		$mensagem_erro = "<b>Por favor, preencha os campos corretamente!</b>";
+		
+	}		
+}
+?>
+
+
+
+
+
+<!-- o div contendo nosso conteúdo a ser mostrado //--> 
+<div id='div' style='display:none'> 
+Descrição:
+<form method="post" action="<?php $PHP_SELF; ?>">
+<textarea id="cordoinput" type="text" name="desc" rows="10" cols="60"><?php echo $grupo["descricao"]; ?></textarea>
+<input id="cordoinput" type="submit" name="cadastrar" value="OK" />
+</form>
+<hr size="1" color="#cccccc">
+<form action="../envia_foto3.php" method="post" enctype="multipart/form-data" name="cadastro" >
+<input type="hidden" name="id" value="<?php echo "$grupo[id]"; ?>">
+<input id="cordoinput" type="file" name="foto" />
+<input id="cordoinput" type="submit" name="cadastrar" value="Enviar">
+</form>
+
+
+
+</div> 
+
+<!-- nosso botão que ativa a função ativa() //--> 
+<input type="button" id="botao" value="Mostrar Opções" onClick="ativa()"> 
+
+
+<?php include("../includes/fb2.dll"); ?>

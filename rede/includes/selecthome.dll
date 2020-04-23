@@ -1,0 +1,9 @@
+<ul class="menu blue">
+<div align="center">
+<li class="current"><a href="index.php?index" class="menu">Home</a></li>
+<li><a href="perfil.php?index" class="menu">Perfil</a></li>
+<li><a href="sair.php" class="menu">Sair</a></li>
+<li><form method="post" action="seek.php"><font size="4">| </font><font size="2">Procurar:</font><label><input id="cordoinput2" size="70" type="text" name="seek" /></label><label><input id="cordoinput2" type="submit" name="logar" value="Buscar"></form></li>
+<li><font size="4">| </font><font size="5"><?php echo "$namesite"; ?></font></li>
+</div>
+</ul>

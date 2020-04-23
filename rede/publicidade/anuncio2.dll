@@ -1,0 +1,6 @@
+
+<?php include "includes/cb.dll" ?>
+Anuncio 1000 X 200
+
+<?php include "includes/fb.dll" ?>
+<br>

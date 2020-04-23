@@ -1,0 +1,21 @@
+<title>Forum - <?php echo "$namesite"; ?></title>
+<?php include("includes/ct.dll"); ?><span class="titulo">Suas Fotos: - <a href=index.php?pag=editalbum class=linkw target="_top">Editar Fotos</a></span><?php include("includes/ft.dll"); ?>
+<?php include("includes/cb.dll"); ?>
+<div align="left">
+<form action="envia_foto2.php" method="post" enctype="multipart/form-data" name="cadastro" >
+<input type="hidden" name="us" value="<?php echo "$id_gen"; ?>">
+<input type="hidden" name="usn" value="<?php echo "$row[nome]"; ?>">
+Adicionar nova foto | Descrição da foto (opicional):
+<input id="cordoinput" type="text" name="nomefoto" />
+<input id="cordoinput" type="file" name="foto" />
+<input id="cordoinput" type="submit" name="cadastrar" value="Enviar" />
+</form>
+<hr size=1 color=#cccccc>
+<?php
+$res = mysql_query("SELECT * FROM `album` where us='$id_gen';");
+ while($escrever=mysql_fetch_array($res)){
+ echo "<a href=album/" . $escrever['nome'] . "><img width=150 src=album/" . $escrever['nome'] . "></a> ";
+}
+?>
+</div>
+<?php include("includes/fb.dll"); ?></div>

@@ -1,0 +1,11 @@
+<?php
+$res1 = mysql_query("SELECT * FROM `post` where us in ($row[contatos]) ORDER BY id DESC LIMIT 0 , 30");
+ while($escrever1=mysql_fetch_array($res1)){
+echo "<div id=\"barrajanela\"><a href=" . $escrever1['us'] . "><span class=\"titulo\">" . $escrever1['usn'] . "</span></a></div>
+<div id=\"conteudojanela\"><span class=\"texto\">" . $escrever1['msg'] . "</span></div><br>";
+}
+
+?>
+<br>
+<hr size="1" color="#cccccc">
+<div align="center"><span class="subtitulo">You Share 2011-2012 | Perses 2012</span></div>

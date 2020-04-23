@@ -1,0 +1,209 @@
+#cordoinput{
+background-color: #dfe9f7;
+color: #000000;
+font-family: Arial;
+font-size: 9pt;
+font-weight: normal;
+text-align: left;
+vertical-align: middle;
+text-indent: 0px;
+}
+/*body {
+	font-family: Verdana;
+	font-size: 12px;
+	color: black;
+	width: 990px;
+	margin: 0px auto;
+	padding:0;
+	background:#ffffff;
+	text-align:center;
+	background-image: url("imgs/hbsvldhasbd.JPG");
+	background-repeat: no-repeat;
+	background-position: down;
+	margin-left: auto;
+	margin-right: auto;
+}*/
+/* lista de fontes */
+.texto {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; color: #666666; text-decoration: none;}
+.texto17 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 17px; color: #000000; text-decoration: none;}
+.menu {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #ffffff; text-decoration: none;}
+.adm {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; color: #bf0000; text-decoration: none;}
+.titulo {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 18px; color: #666666; text-decoration: none;}
+.subtitulo {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #666666; text-decoration: none;}
+.titulo2 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; color: #0033bc; text-decoration: none;}
+.linkamigo {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 16px; color: #0033bc; text-decoration: none;}
+/* fim lista de fontes */
+/* lista de links */
+.linkw:link {color: #0033bc; text-decoration: none}
+.linkw:visited {color: #0033bc; text-decoration: none}
+.linkw:active {color: #0033bc; text-decoration: none}
+.linkw:hover {color: #0033bc; text-decoration : underline}
+.notice:link {color: black; text-decoration: none}
+.notice:visited {color: black; text-decoration: none}
+.notice:active {color: black; text-decoration: none}
+.notice:hover {color: black; text-decoration : underline}
+.link:link {color: black; text-decoration: none}
+.link:visited {color: black; text-decoration: none}
+.link:active {color: black; text-decoration: none}
+.link:hover {color: black; text-decoration : underline}
+.atual:link {color: white; text-decoration: underline}
+.atual:visited {color: white; text-decoration: underline}
+.atual:active {color: red; text-decoration: none}
+.atual:hover {color: gray; text-decoration : underline}
+.painel:link {color: #001188; text-decoration: none}
+.painel:visited {color: #001188; text-decoration: none}
+.painel:active {color: #001188; text-decoration: none}
+.painel:hover {color: #4058ff; text-decoration : underline}
+.painel {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; color: #001188; text-decoration: none;}
+a.classe1:link, a.classe1:visited {
+	text-decoration: none
+	}
+a.classe1:hover {
+	text-decoration: underline; 
+	color: #FFFFFF;
+}
+a.classe1:active {
+	text-decoration: none
+	}
+a.classe2:link, a.classe2:visited {
+	text-decoration: none
+	}
+a.classe2:hover {
+	text-decoration: underline; 
+	color: #CD5C5C;
+	}
+a.classe2:active {
+	text-decoration: none
+	}
+/* fim lista de links */
+/* lista de bordas */
+.bordaBox1 {bbackground: ttransparent; width:100%;}
+.bordaBox1 .c1, .bordaBox1 .c2, .bordaBox1 .c3, .bordaBox1 .c4, .bordaBox1 .b1b, .bordaBox1 .b2b, .bordaBox1 .b3b, .bordaBox1 .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBox1 .c1, .bordaBox1 .c2, .bordaBox1 .c3, .bordaBox1 .b1b, .bordaBox1 .b2b, .bordaBox1 .b3b {height:1px;}
+.bordaBox1 .c2, .bordaBox1 .c3, .bordaBox1 .c4 {background:#cccccc; border-left:1px solid #cccccc; border-right:1px solid #cccccc;}
+.bordaBox1 .c1 {margin:0 5px; background:#cccccc;}
+.bordaBox1 .c2 {margin:0 3px; border-width:0 2px;}
+.bordaBox1 .c3 {margin:0 2px;}
+.bordaBox1 .c4 {height:2px; margin:0 1px;}
+.bordaBox1 .conteudo1 {padding:5px;display:block; background:#cccccc; border-left:1px solid #cccccc; border-right:1px solid #cccccc;}
+.bordaBox {bbackground: ttransparent; width:100%;}
+.bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b4, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b, .bordaBox .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b {height:1px;}
+.bordaBox .b2, .bordaBox .b3, .bordaBox .b4 {background:#ebebeb; border-left:1px solid #cccccc; border-right:1px solid #cccccc;}
+.bordaBox .b1 {margin:0 5px; background:#cccccc;}
+.bordaBox .b2 {margin:0 3px; border-width:0 2px;}
+.bordaBox .b3 {margin:0 2px;}
+.bordaBox .b4 {height:2px; margin:0 1px;}
+.bordaBox .conteudo {padding:5px;display:block; background:#ebebeb; border-left:1px solid #cccccc; border-right:1px solid #cccccc;}
+.bordaBox2 {bbackground: ttransparent; width:100%;}
+.bordaBox2 .e1, .bordaBox2 .e2, .bordaBox2 .e3, .bordaBox2 .e4, .bordaBox2 .b1b, .bordaBox2 .b2b, .bordaBox2 .b3b, .bordaBox2 .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBox2 .e1, .bordaBox2 .e2, .bordaBox2 .e3, .bordaBox2 .b1b, .bordaBox2 .b2b, .bordaBox2 .b3b {height:1px;}
+.bordaBox2 .e2, .bordaBox2 .e3, .bordaBox2 .e4 {background:#f7e9e9; border-left:1px solid #f7e9e9; border-right:1px solid #f7e9e9;}
+.bordaBox2 .e1 {margin:0 5px; background:#f7e9e9;}
+.bordaBox2 .e2 {margin:0 3px; border-width:0 2px;}
+.bordaBox2 .e3 {margin:0 2px;}
+.bordaBox2 .e4 {height:2px; margin:0 1px;}
+.bordaBox2 .conteudo2 {padding:5px;display:block; background:#f7e9e9; border-left:1px solid #f7e9e9; border-right:1px solid #f7e9e9;}
+.bordaBox3 {bbackground: ttransparent; width:100%;}
+.bordaBox3 .a1, .bordaBox3 .a2, .bordaBox3 .a3, .bordaBox3 .a4, .bordaBox3 .b1b, .bordaBox3 .b2b, .bordaBox3 .b3b, .bordaBox3 .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBox3 .a1, .bordaBox3 .a2, .bordaBox3 .a3, .bordaBox3 .b1b, .bordaBox3 .b2b, .bordaBox3 .b3b {height:1px;}
+.bordaBox3 .a2, .bordaBox3 .a3, .bordaBox3 .a4 {background:#ebebeb; border-left:1px solid #cccccc; border-right:1px solid #cccccc;}
+.bordaBox3 .a1 {margin:0 5px; background:#cccccc;}
+.bordaBox3 .a2 {margin:0 3px; border-width:0 2px;}
+.bordaBox3 .a3 {margin:0 2px;}
+.bordaBox3 .a4 {height:2px; margin:0 1px;}
+.bordaBox3 .conteudo3 {padding:5px;display:block; background:#ebebeb; border-left:1px solid #cccccc; border-right:1px solid #cccccc;}
+/* fim lista de bordas */
+/* outros */
+/*input {
+	margin:5px 0;
+	padding:3px;
+	border:1px solid #ebebeb;
+	background-color:#ebebeb;
+	color:#666666;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+	border-radius:0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}*/
+#input1{
+	margin:5px 0;
+	padding:3px;
+	border:1px solid #ebebeb;
+	background-color:#ebebeb;
+	color:#666666;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+	border-radius:0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+textarea {
+	margin:5px 0;
+	padding:3px;
+	border:1px solid #0033bc;
+	cursor:pointer;
+	background-color:#dfe9f7;
+	color:#0033bc;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+.botaopadrao1 {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ededed;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:0px 10px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}.botaopadrao1:hover {
+	background-color:#dfdfdf;
+}.botaopadrao1:active {
+	position:relative;
+	top:1px;
+}
+.botaopadrao {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ebebeb;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ebebeb;
+	box-shadow:inset 0px 1px 0px 0px #ebebeb;
+	background-color:#ebebeb;
+	display:inline-block;
+	color:#666666;
+	font-family:arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:4px 3px;
+	text-decoration:none;
+	width: 184px;
+}.botaopadrao:hover {
+	background-color:#e0e0e0;
+}.botaopadrao:active {
+	position:relative;
+	top:1px;
+}
+#painel {width:200px; left:2px; top:2px; position:absolute;}
+/*div#dhecenterdiv1 {margin: 0px auto; position: relative; width: 1000px;}
+body {margin: 0px; padding: 0px; text-align: center;}*/
+#conteudo1 {
+border: 1px solid #cccccc;
+background: #ebebeb;
+}
+#barrajanela {
+border: 1px solid #cccccc;
+background: #cccccc;
+}
+#conteudojanela {
+border: 1px solid #cccccc;
+background: #ebebeb;
+}

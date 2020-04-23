@@ -1,0 +1,1 @@
+<hr size="1" color="#cccccc"><div align="center"><span class="subtitulo"><?php echo "$namesite"; ?> <?php echo "$versionsite"; ?> Copyright 2011 - 2012</span></div>

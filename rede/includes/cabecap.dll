@@ -1,0 +1,76 @@
+<?php
+
+$conecta = mysql_connect("localhost", "root", "369875");
+		   mysql_select_db("rede", $conecta);
+		   
+class SistemaLogin { // Defino a classe principal do sistema
+	
+	function antisql($sql) { // Função Anti-SQL
+		$sql = get_magic_quotes_gpc() == 0 ? addslashes($sql) : $sql;
+		$sql = trim($sql);
+		$sql = strip_tags($sql);
+		$sql = mysql_escape_string($sql);
+		return preg_replace("@(--|\#|\*|;|=)@s", '', $sql);
+	}
+}
+$class = new SistemaLogin;
+$tabela = "users1";
+?>
+<?php include "nomeversao.dll"; ?>
+<?php
+
+if(!empty($_COOKIE["nome"]) && !empty($_COOKIE["senha"]) && !empty($_COOKIE["id"])){ // Verifico se existe cookies de login
+
+	// Transformo os cookies em variáveis
+	$login = $_COOKIE["nome"];
+	$senha = $_COOKIE["senha"];
+	$id_gen = base64_decode($_COOKIE["id"]); // Decodifico o id do cookie
+	
+	// Consulto o BD para ver se os cookies são compatíveis com os dados SQL
+	$auth_user = "SELECT * FROM $tabela WHERE id='$id_gen' AND nome='$login' AND senha='$senha'";
+	$autentica = mysql_query($auth_user); // Executo a busca
+	$rs = mysql_fetch_array($autentica); // Defino o array dos resultados para a var $rs
+	
+	$id = $rs["id"]; // Retorno o id do BD
+	
+	$rConfirm = mysql_num_rows($autentica); // Var responsável por retornar o número de linhas da consulta
+	
+} 
+if (isset($rConfirm) && $rConfirm > '0') { // Verifico se foram retornadas linhas referentes a consulta
+
+	$mysqlq = mysql_query("SELECT * FROM $tabela WHERE id='$id'"); // Faço uma consulta para pegar os dados do user
+	$row = mysql_fetch_array($mysqlq); // Var responsável pelo array de resultados da consulta em $mysqlq	
+
+} 
+else { // Se não retornar nenhuma linha, redireciona o usuário para a página de login
+	header ("Location: logar.php");
+	exit();
+}
+
+?>
+<script src="includes/carregando.js"></script>
+<link rel="shortcut icon" href="imgs/icone.jpg">
+<link rel="stylesheet" href="css/menu/menu_style.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body text="#000000" link="#000000" alink="#000000" vlink="#000000" bgcolor="#eff1f7" OnLoad="Carregado()">
+<div id="dhecenterdiv1" align="left">
+<div id="Msg_Carregando">
+<script src="carregando2.js"></script>
+</div>
+<script src="carregando3.js"></script>
+<?php
+$cb="<div class=\"bordaBox\"><div class=\"conteudo\">";
+$fb="</div><b class=\"b4\"></b><b class=\"b3\"></b><b class=\"b2\"></b><b class=\"b1\"></b></div>";
+$ct="<div class=\"bordaBox1\"><b class=\"c1\"></b><b class=\"c2\"></b><b class=\"c3\"></b><b class=\"c4\"></b><div class=\"conteudo1\">";
+$ft="</div></div>";
+?>
+<?php include("selectperfil.dll"); ?><br>
+<div id="corpo">
+	<div id="publicidade" style="position: relative; left: 0px; top: 3px; width: 200px; height: 10px;">
+		<?php include "includes/ct.dll" ?><center><span class="titulo">Painel</span></center><?php include "includes/ft.dll" ?></span>
+		<?php include "includes/cb.dll" ?>
+		<?php include "painel/painel.dll" ?>
+		<?php include "includes/fb.dll" ?>
+	</div>
+	<div id="news" style="position: relative; left: 205px; top: -7px; width: 795px;">

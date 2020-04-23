@@ -1,0 +1,10 @@
+<?php
+$res2 = mysql_query("SELECT * FROM `amigos1` where uskey='$id_gen';");
+ while($escrever2=mysql_fetch_array($res2)){
+$res = mysql_query("SELECT * FROM `users1` where id='$escrever2[us]' ORDER BY id;");
+echo "<table><tr><td width=55></td><td></td></tr>";
+while($escrever=mysql_fetch_array($res)){
+echo "<tr><td><strong><a href=index.php?pag=user&info1=" . $escrever['id'] . " class=link target=_top><img src=fotos/" . $escrever['foto'] . " width=200 height=200></a></strong></td><td><a href=index.php?pag=user&info1=" . $escrever['id'] . " class=link target=_top><span class=linkamigo>" . $escrever['nome1'] . " " . $escrever['nome2'] . "</span></a><br><a href=# target=_top>Excluir Amigo<a></td></tr>";
+}}
+echo "</table>";
+?>

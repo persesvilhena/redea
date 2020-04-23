@@ -1,0 +1,22 @@
+<div id="painel">
+<div class="bordaBox3">
+<b class="a1"></b><b class="a2"></b><b class="a3"></b><b class="a4"></b>
+<div class="conteudo3">
+<img width="188" src="fotos/<?php echo "$row[foto]"; ?>"><br>
+<a href="index.php?perfil" class="painel" target="_top"><?php echo $row["nome1"]; ?> <?php echo $row["nome2"]; ?></a> - <a href="sair.php" class="painel" target="_top">Sair</a><br>
+<hr size="1" width="188" color="#cccccc">
+<span class="titulo">Menu Principal</span><br>
+<hr size="1" width="188" color="#cccccc">
+<a href="index.php?index" class="botaopadrao" target="_top">Home</a><br>
+<a href="index.php?album" class="botaopadrao" target="_top">Correio</a><br>
+<a href="index.php?postar" class="botaopadrao" target="_top">Contatos</a><br>
+<a href="index.php?post" class="botaopadrao" target="_top">Meu Espaço</a><br>
+<a href="index.php?album" class="botaopadrao" target="_top">Fotos</a><br>
+<a href="index.php?grupos" class="botaopadrao" target="_top">Publicações</a><br>
+<a href="index.php?msg" class="botaopadrao" target="_top">Rank</a><br>
+<a href="index.php?msg" class="botaopadrao" target="_top">Grupos</a><br>
+<hr size="1" color="#cccccc"><div align="center"><span class="subtitulo">You Share V 0.6 Copyright 2011 - 2013</span></div>
+</div>
+<b class="a4"></b><b class="a3"></b><b class="a2"></b><b class="a1"></b>
+</div>
+</div>

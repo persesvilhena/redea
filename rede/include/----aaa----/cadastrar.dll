@@ -1,0 +1,115 @@
+<?php
+
+
+if(isset($_POST["cadastrar"])) { // Verifico se o botão cadastrar foi acionado
+	
+	if(!empty($_POST["login"]) && !empty($_POST["senha"]) && !empty($_POST["email"])) { // Verifico se os campos foram preenchidos
+		
+		$login = $class->antisql($_POST["login"]); // Filtro os dados de login name originados do formulário
+		$senha = $class->antisql($_POST["senha"]); // Filtro a senha originada do formulário
+		$email = $class->antisql($_POST["email"]); // Filtro o e-mail originado do formulário
+		$nome1 = $class->antisql($_POST["nome1"]); // Filtro o e-mail originado do formulário
+		$nome2 = $class->antisql($_POST["nome2"]); // Filtro o e-mail originado do formulário
+		$descricao1 = $class->antisql($_POST["descricao1"]); // Filtro o e-mail originado do formulário
+		
+		$senha_sha1 = sha1($senha); // Codifico a senha inserida para consulta SQL
+		
+		$repeat_user = mysql_query("SELECT * FROM $tabela WHERE nome='$login'") or die($mensagem_erro = "<b>Houve um erro:</b><br />".mysql_error()); // Faço a consulta ao SQL para verificar se não há usuários com o mesmo login name
+		
+		if(mysql_num_rows($repeat_user) > 0) { // Verifico se a consulta retorna algum resultado. Nesse caso, se retornar, define uma mensagem de erro.
+			
+			$mensagem_erro = "<b>Já existe um usuário com este login name!</b>";
+		}
+		else {
+			
+			$insert = mysql_query("INSERT INTO $tabela(nome, senha, email, nome1, descricao1, nome2, foto) VALUES('$login', '$senha', '$email', '$nome1', '$descricao1', '$nome2', 'anon/anon.jpg')") or die(mysql_error()); // Insiro os dados no BD
+			
+			if($insert) { // Verifico se a query foi executada com sucesso. Se sim, define mensagem de sucesso.
+				
+				$mensagem_erro = "<b>Usuário cadastrado com sucesso!</b>";
+			}
+		}
+		
+	}
+	else { // Se houver algum campo em branco, define mensagem de erro
+	
+		$mensagem_erro = "<b>Por favor, preencha os campos corretamente!</b>";
+		
+	}		
+}
+?>
+<?php
+if(isset($_POST["cadastrar"])) { 
+$testesql = mysql_query("SELECT * FROM $tabela WHERE nome='$login';");
+$testesql2 = mysql_fetch_array($testesql);
+$apagando = mysql_query("INSERT INTO foto VALUES (null, '$testesql2[id]', 'semfoto.jpeg')");
+}
+
+?>
+<?php
+if(isset($_POST["cadastrar"])) { 
+$testesql1 = mysql_query("SELECT * FROM $tabela WHERE nome='$login';");
+$sqldata = mysql_fetch_array($testesql1);
+$apagando1 = mysql_query("INSERT INTO amigos VALUES (null, '$sqldata[id]', '$sqldata[id]', '$sqldata[nome]', '$sqldata[nome]')");
+}
+
+?>
+<?php include("includes/ct.dll"); ?><span class="titulo">Cadastrar:</span><?php include("includes/ft.dll"); ?>
+
+<?php include("includes/cb.dll"); ?>
+<form method="post" action="<?php $PHP_SELF; ?>">
+<table width="600" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td><?php echo $mensagem_erro; ?></td>
+  </tr>
+  <tr>
+    <td><table width="550" border="0" cellspacing="0" cellpadding="5">
+      <tr>
+        <td width="53">Login:</td>
+        <td width="477"><label>
+          <input id="cordoinput" type="text" name="login" />
+        </label></td>
+      </tr>
+      <tr>
+        <td>Senha:</td>
+        <td><label>
+          <input id="cordoinput" type="password" name="senha" />
+        </label></td>
+      </tr>
+      <tr>
+        <td>E-mail:</td>
+        <td><label>
+          <input id="cordoinput" type="text" name="email" />
+		</label></td>
+      </tr>
+      <tr>
+        <td>Nome:</td>
+        <td><label>
+          <input id="cordoinput" type="text" name="nome1" />
+		</label></td>
+      </tr>
+      <tr>
+        <td>Sobrenome:</td>
+        <td><label>
+          <input id="cordoinput" type="text" name="nome2" />
+		</label></td>
+      </tr>
+      <tr>
+        <td>Descricao:</td>
+        <td><label>
+          <input id="cordoinput" type="text" name="descricao1" />
+		</label></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><label>
+          <button type="submit" name="cadastrar" value="Cadastrar">Cadastrar</button>
+        </label></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</form>
+</body>
+<?php include("includes/fb.dll"); ?>
+</html>

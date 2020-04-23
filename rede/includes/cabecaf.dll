@@ -1,0 +1,26 @@
+<?php
+
+$conecta = mysql_connect("localhost", "root", "369875");
+		   mysql_select_db("rede", $conecta);
+		   
+class SistemaLogin { // Defino a classe principal do sistema
+	
+	function antisql($sql) { // Função Anti-SQL
+		$sql = get_magic_quotes_gpc() == 0 ? addslashes($sql) : $sql;
+		$sql = trim($sql);
+		$sql = strip_tags($sql);
+		$sql = mysql_escape_string($sql);
+		return preg_replace("@(--|\#|\*|;|=)@s", '', $sql);
+	}
+}
+$class = new SistemaLogin;
+$tabela = "users1";
+?>
+<link rel="shortcut icon" href="imgs/icone.jpg">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<?php
+$cb="<div class=\"bordaBox\"><div class=\"conteudo\">";
+$fb="</div><b class=\"b4\"></b><b class=\"b3\"></b><b class=\"b2\"></b><b class=\"b1\"></b></div>";
+$ct="<div class=\"bordaBox1\"><b class=\"c1\"></b><b class=\"c2\"></b><b class=\"c3\"></b><b class=\"c4\"></b><div class=\"conteudo1\">";
+$ft="</div></div>";
+?>

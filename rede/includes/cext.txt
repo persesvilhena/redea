@@ -1,0 +1,20 @@
+<body text="#000000" link="#000000" alink="#000000" vlink="#000000" bgcolor="#ffffff" OnLoad="Carregado()">
+<div align="left">
+<div id="Msg_Carregando">
+<script src="carregando2.js"></script>
+</div>
+<script src="carregando3.js"></script>
+<?php
+$cb="<div class=\"bordaBox\"><div class=\"conteudo\">";
+$fb="</div><b class=\"b4\"></b><b class=\"b3\"></b><b class=\"b2\"></b><b class=\"b1\"></b></div>";
+$ct="<div class=\"bordaBox1\"><b class=\"c1\"></b><b class=\"c2\"></b><b class=\"c3\"></b><b class=\"c4\"></b><div class=\"conteudo1\">";
+$ft="</div></div>";
+?>
+<div id="corpo">
+	<div id="publicidade" style="position: relative; left: 0px; top: 0px; width: 200px; height: 10px;">
+<?php include "painel/painel.dll"; ?>
+
+	</div>
+	<div id="news" style="position: relative; left: 205px; top: -5px;">
+
+

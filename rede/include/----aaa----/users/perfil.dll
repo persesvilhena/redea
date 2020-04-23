@@ -1,0 +1,53 @@
+<?php
+$res2 = mysql_query("SELECT * FROM `users1` where id='$info1';");
+$escrever2=mysql_fetch_array($res2);
+?>
+<?php
+if(isset($_POST["amigo"])) {
+$insert = mysql_query("INSERT INTO amigos1 VALUES(null, '$id_gen', '$info1')");
+}
+?>
+<span class="titulo"><?php echo "$escrever2[nome1]"; ?> <?php echo "$escrever2[nome2]"; ?></span><br><hr size="1" color="#cccccc">
+<img src="fotos/<?php echo "$escrever2[foto]"; ?>" width="200" align="left">
+<span class="titulo2">User:</span> <?php echo $escrever2["nome"]; ?>
+<br>
+<span class="titulo2">E-mail:</span> <?php echo $escrever2["email"]; ?>
+<br>
+<span class="titulo2">Nome:</span> <?php echo $escrever2["nome1"]; ?>
+<br>
+<span class="titulo2">Sobrenome:</span> <?php echo $escrever2["nome2"]; ?>
+<br>
+<span class="titulo2">Descrição:</span> <?php echo $escrever2["descricao1"]; ?>
+<br>
+<span class="titulo2">Interressam-me:</span> <?php echo $escrever2["interresse"]; ?>
+<br>
+<span class="titulo2">Status de Relacionamento:</span> <?php echo $escrever2["status"]; ?>
+<br>
+<span class="titulo2">Género:</span> <?php echo $escrever2["genero"]; ?>
+<br>
+<span class="titulo2">Celular:</span> <?php echo $escrever2["celular"]; ?>
+<br>
+<?php
+$amigo = mysql_query("SELECT * FROM amigos1 WHERE uskey='$id_gen' and us='$info1'");
+if(mysql_num_rows($amigo) == 0) {
+echo "<form method=post action=" . $PHP_SELF . "><input name=amigo type=submit value=\"Adicionar como amigo\"></form>";
+}
+?>
+<?php echo "$escrever2[perfil]"; ?>
+
+
+<div style="position: relative; left: 0 px; top: 3px;">
+<hr size="1" color="#cccccc">
+<span class="titulo">Posts de <?php echo $escrever2["nome1"]; ?> <?php echo $escrever2["nome2"]; ?></span> 
+<br><hr size="1" color="#cccccc">
+<?php
+$res = mysql_query("SELECT * FROM `post` where us='$info1' ORDER BY id DESC LIMIT 0,100;");
+echo "<table><tr><td width=55></td><td></td></tr>";
+while($escrever=mysql_fetch_array($res)){
+$res1 = mysql_query("SELECT * FROM `users1` where id='$escrever[us]';");
+$escrever1=mysql_fetch_array($res1);
+echo "<tr><td><strong><a href=user.php?uid=" . $escrever['us'] . " class=link><img src=fotos/" . $escrever1['foto'] . " width=50 height=50></a></strong></td><td><h3><a href=verpost.php?uid=" . $escrever['id'] . " class=link>" . $escrever['assunto'] . "</a></h3></td></tr>";
+}
+echo "</table>";
+?>
+<br>

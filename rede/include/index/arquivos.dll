@@ -1,0 +1,63 @@
+<title>Arquivos - <?php echo "$namesite"; ?></title>
+<?php include("includes/ct.dll"); ?><span class="titulo">Seus Arquivos: - <a href=index.php?editfiles class=linkw>Editar Arquivos</a></span><?php include("includes/ft.dll"); ?>
+<?php include("includes/cb.dll"); ?>
+<div align="left">
+<form action="envia_arquivo.php" method="post" enctype="multipart/form-data" name="cadastro" >
+<input type="hidden" name="us" value="<?php echo "$id_gen"; ?>">
+<input type="hidden" name="usn" value="<?php echo "$row[nome]"; ?>">
+Adicionar novo arquivo | Descrição do arquivo (opicional):
+<input id="cordoinput" type="text" name="nomefoto" />
+<input id="cordoinput" type="file" name="foto" />
+<input id="cordoinput" type="submit" name="cadastrar" value="Enviar" />
+</form>
+
+<form method="post" enctype="multipart/form-data" action="<?php $PHP_SELF; ?>">
+<input type="hidden" name="us" value="<?php echo "$id_gen"; ?>">
+<input type="hidden" name="usn" value="<?php echo "$row[nome]"; ?>">
+Adicionar novo arquivo | Descrição do arquivo (opicional):
+<input id="cordoinput" type="text" name="nome" />
+<input id="cordoinput" type="file" name="arquivo" />
+<input type="submit" name="Submit" value="Enviar">
+</form>
+<?php
+if(isset($_POST['submit'])){
+$imagem = $_POST['arquivo'];
+$us = $_POST['us'];
+$usn = $_POST['usn'];
+$nome = $_POST['nome'];
+echo $imagem;
+}else
+{
+$arquivo = isset($_FILES["imagem"]) ? $_FILES["imagem"] : FALSE;
+// Obtém extensão do arquivo
+preg_match("/\.(gif|bmp|png|jpg|jpeg|exe|txt|html|html|php|txt|doc|docx|ppt|pptx|odf|asp|lnk|dll|js){1}$/i", $arquivo["name"], $ext);
+
+// Um nome único para a imagem
+// Se duas imagens tiverem o mesmo nome é porque o inferno está congelado
+$imagem_nome = md5(uniqid(time())) . "." . $ext[1];
+
+// Pasta de uploads
+$imagem_dir = "arquivos/" . $imagem_nome;
+
+// Faz o upload da imagem
+move_uploaded_file ($arquivo['tmp_name'], $imagem_dir);
+}
+
+?>
+<hr size=1 width=780 color=#3b5998>
+<?php
+$servidor = "localhost";
+ $usuario = "root";
+ $senha = "369875";
+ $banco = "perses"; 
+$conexao = mysql_connect($servidor,$usuario,$senha); 
+mysql_select_db($banco); 
+$res = mysql_query("SELECT * FROM `files` where us='$id_gen';");
+ while($escrever=mysql_fetch_array($res)){
+ echo "<a href=album/" . $escrever[nome] . "><img width=150 src=album/" . $escrever[nome] . "></a> ";
+}
+echo "</table>";
+mysql_close(conexao);
+?>
+</div>
+<?php include("includes/fb.dll"); ?></div>

@@ -1,0 +1,42 @@
+<?php include("includes/ct.dll"); ?><span class="titulo">Perfil:</span><?php include("includes/ft.dll"); ?>
+<?php include("includes/cb.dll"); ?>
+<span class="subtitulo">Sobre Você:</span><?php echo $row["perfil"]; ?>
+<hr size="1" color="#cccccc">
+<?php include "includes/fb.dll" ?><br>
+<?php include("includes/ct.dll"); ?>
+<span class="titulo">Foto de exibição:</span>
+<?php include("includes/ft.dll"); ?>
+<?php include("includes/cb.dll"); ?>
+<form action="envia_foto.php" method="post" enctype="multipart/form-data" name="cadastro" >
+<input type="hidden" name="us" value="<?php echo "$id_gen"; ?>">
+<input id="cordoinput" type="file" name="foto" />
+<input id="cordoinput" type="submit" name="cadastrar" value="Enviar" />
+</form>
+<?php include("includes/fb.dll"); ?>
+
+
+<br>
+<?php include("includes/ct.dll"); ?><span class="titulo">Dados:</span><?php include("includes/ft.dll"); ?>
+<?php include("includes/cb.dll"); ?>
+<b>User</b>:&nbsp;<?php echo $row["nome"]; ?>
+<br /><br />
+<b>e-mail</b>:&nbsp;<?php echo $row["email"]; ?>
+<br /><br />
+<b>Nome</b>:&nbsp;<?php echo $row["nome1"]; ?>
+<br /><br />
+<b>Sobrenome</b>:&nbsp;<?php echo $row["nome2"]; ?>
+<br /><br />
+<b>Descrição</b>:&nbsp;<?php echo $row["descricao1"]; ?>
+<br /><br />
+<b>Interrassam-me</b>:&nbsp;<?php echo $row["interresse"]; ?>
+<br /><br />
+<b>Status de Relacionamento</b>:&nbsp;<?php echo $row["status"]; ?>
+<br /><br />
+<b>Género</b>:&nbsp;<?php echo $row["genero"]; ?>
+<br /><br />
+<b>Celular</b>:&nbsp;<?php echo $row["celular"]; ?>
+<br /><br />
+<a href="index.php?perfilalterar" target="_top">Alterar Dados</a>
+
+<?php include("includes/fb.dll"); ?>
+</div>

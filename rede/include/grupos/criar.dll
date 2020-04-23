@@ -1,0 +1,92 @@
+<?php
+
+
+if(isset($_POST["cadastrar"])) {
+	
+	if(!empty($_POST["nome"]) && !empty($_POST["desc"]) && !empty($_POST["idautor"])) { 
+	
+		$nome = $class->antisql($_POST["nome"]);
+		$desc = $class->antisql($_POST["desc"]);
+		$idautor = $class->antisql($_POST["idautor"]);
+		$autor = $class->antisql($_POST["autor"]);
+		
+		
+		$repeat_user = mysql_query("SELECT * FROM grupo WHERE nome='$nome'") or die($mensagem_erro = "<b>Houve um erro:</b><br />".mysql_error());
+		$repeat_user = mysql_query("SELECT * FROM grupo WHERE id='$row[grupo]'") or die($mensagem_erro = "<b>Houve um erro:</b><br />".mysql_error());
+	
+		if(mysql_num_rows($repeat_user) > 0) { 
+			
+			$mensagem_erro = "<b>Já existe um grupo com este nome ou você ja possui um!</b>";
+		}
+		else {
+			
+			$insert = mysql_query("INSERT INTO grupo VALUES(null, '$nome', '$desc', null, '$idautor', '$autor')") or die(mysql_error());
+			
+			if($insert) {
+				
+				$mensagem_erro = "<b>Grupo cadastrado com sucesso!</b>";
+			}
+		}
+		
+	}
+	else {
+	
+		$mensagem_erro = "<b>Por favor, preencha os campos corretamente!</b>";
+		
+	}		
+}
+?>
+<?php
+$selectgrupo = mysql_query("SELECT * FROM grupo WHERE nome='$nome'");
+ while($escrever=mysql_fetch_array($selectgrupo)){
+$upgrupo = mysql_query("update users1 set grupo = '$escrever[id]' where id='$id_gen'") or die(mysql_error());
+}
+?>
+
+<?php include("includes/ct.dll"); ?><span class="titulo">Criar Grupo:</span><?php include("includes/ft.dll"); ?>
+
+<?php include("includes/cb.dll"); ?>
+<form method="post" action="<?php $PHP_SELF; ?>">
+<table width="600" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td><?php echo $mensagem_erro; ?></td>
+  </tr>
+  <tr>
+    <td><table width="550" border="0" cellspacing="0" cellpadding="5">
+      <tr>
+        <td width="53">Nome:</td>
+        <td width="477"><label>
+          <input id="cordoinput" type="text" name="nome" />
+        </label></td>
+      </tr>
+      <tr>
+        <td>Descrição:</td>
+        <td><label>
+          <textarea id="cordoinput" type="text" name="desc" rows="10" cols="100"></textarea>
+        </label></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><label>
+          <input id="cordoinput" type="hidden" name="idautor" value="<?php echo "$id_gen"; ?>">
+		</label></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><label>
+          <input id="cordoinput" type="hidden" name="autor" value="<?php echo $row["nome1"]; ?>">
+		</label></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><label>
+          <button type="submit" name="cadastrar" value="Cadastrar">Criar</button>
+        </label></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</form>
+</body>
+<?php include("includes/fb.dll"); ?>
+</html>
